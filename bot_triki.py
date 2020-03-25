@@ -97,7 +97,7 @@ def bot():
     gameover=1 #Variable para definir que el juego terminó
     jugador=1 #Generamos un valor de jugador para determinar quien está jugando y cuantos turnos lleva el juego
     print("\nInicia el juego:")
-    while(jugador<=5 and gameover!=0): #Mientras el juego lleve menos de 10 turnos y no se cumpla una win condition:
+    while(jugador<=5 and gameover!=0): #Mientras el juego lleve menos de 5 rondas y no se cumpla una win condition:
         if(((matriz2[0][0]=='X'and matriz2[1][1]=='X'and matriz2[2][2]=='X') #Todas las posibles win condition
         or (matriz2[0][2]=='X'and matriz2[1][1]=='X'and matriz2[2][0]=='X')
         or (matriz2[0][0]=='X'and matriz2[1][0]=='X'and matriz2[2][0]=='X')
@@ -141,294 +141,295 @@ def bot():
             for i in matriz2: #Imprime el tablero actual
                 print(i)
             #A partir de aca juega el bot
-            if (matriz2[0][0]=='X'and matriz2[1][1]=='X'and matriz2[2][2]=='-'): #Diagonal de 135°
+            #El bot siempre va a verificar si puede ganar una partida, por lo que es su primera búsqueda:
+            if (matriz2[0][0]=='O'and matriz2[1][1]=='O'and matriz2[2][2]=='-'): #Diagonal de 135°
                 print("\njuega el bot:\n")
                 matriz2[2][2]='O'
                 for i in matriz2:
                     print (i)
             else:
-                if (matriz2[0][0]=='X'and matriz2[1][1]=='-'and matriz2[2][2]=='X'):
+                if (matriz2[0][0]=='O'and matriz2[1][1]=='-'and matriz2[2][2]=='O'):
                     print("\njuega el bot:\n")
                     matriz2[1][1]='O'
                     for i in matriz2:
                         print (i)
                 else:
-                    if (matriz2[0][0]=='-'and matriz2[1][1]=='X'and matriz2[2][2]=='X'):
+                    if (matriz2[0][0]=='-'and matriz2[1][1]=='O'and matriz2[2][2]=='O'):
                         print("\njuega el bot:\n")
                         matriz2[0][0]='O'
                         for i in matriz2:
                             print (i)
                     else:
-                        if (matriz2[0][2]=='X'and matriz2[1][1]=='X'and matriz2[2][0]=='-'): #Diagonal de 225°
+                        if (matriz2[0][2]=='O'and matriz2[1][1]=='O'and matriz2[2][0]=='-'): #Diagonal de 225°
                             print("\njuega el bot:\n")
                             matriz2[2][0]='O'
                             for i in matriz2:
                                 print (i)
                         else:
-                            if (matriz2[0][2]=='X'and matriz2[1][1]=='-'and matriz2[2][0]=='X'):
+                            if (matriz2[0][2]=='O'and matriz2[1][1]=='-'and matriz2[2][0]=='O'):
                                 print("\njuega el bot:\n")
                                 matriz2[1][1]='O'
                                 for i in matriz2:
                                     print (i)
                             else:
-                                if (matriz2[0][2]=='-'and matriz2[1][1]=='X'and matriz2[2][0]=='X'):
+                                if (matriz2[0][2]=='-'and matriz2[1][1]=='O'and matriz2[2][0]=='O'):
                                     print("\njuega el bot:\n")
                                     matriz2[0][2]='O'
                                     for i in matriz2:
                                         print (i)
                                 else:
-                                    if (matriz2[0][0]=='X'and matriz2[1][0]=='X'and matriz2[2][0]=='-'): #Primer vertical
+                                    if (matriz2[0][0]=='O'and matriz2[1][0]=='O'and matriz2[2][0]=='-'): #Primer vertical
                                         print("\njuega el bot:\n")
                                         matriz2[2][0]='O'
                                         for i in matriz2:
                                             print (i)
                                     else:
-                                        if (matriz2[0][0]=='X'and matriz2[1][0]=='-'and matriz2[2][0]=='X'):
+                                        if (matriz2[0][0]=='O'and matriz2[1][0]=='-'and matriz2[2][0]=='O'):
                                             print("\njuega el bot:\n")
                                             matriz2[1][0]='O'
                                             for i in matriz2:
                                                 print (i)
                                         else:
-                                            if (matriz2[0][0]=='-'and matriz2[1][0]=='X'and matriz2[2][0]=='X'):
+                                            if (matriz2[0][0]=='-'and matriz2[1][0]=='O'and matriz2[2][0]=='O'):
                                                 print("\njuega el bot:\n")
                                                 matriz2[0][0]='O'
                                                 for i in matriz2:
                                                     print (i)
                                             else:
-                                                if (matriz2[0][1]=='X'and matriz2[1][1]=='X'and matriz2[2][1]=='-'): #Segundo vertical
+                                                if (matriz2[0][1]=='O'and matriz2[1][1]=='O'and matriz2[2][1]=='-'): #Segundo vertical
                                                     print("\njuega el bot:\n")
                                                     matriz2[2][1]='O'
                                                     for i in matriz2:
                                                         print (i)
                                                 else:
-                                                    if (matriz2[0][1]=='X'and matriz2[1][1]=='-'and matriz2[2][1]=='X'):
+                                                    if (matriz2[0][1]=='O'and matriz2[1][1]=='-'and matriz2[2][1]=='O'):
                                                         print("\njuega el bot:\n")
                                                         matriz2[1][1]='O'
                                                         for i in matriz2:
                                                             print (i)
                                                     else:
-                                                        if (matriz2[0][1]=='-'and matriz2[1][1]=='X'and matriz2[2][1]=='X'):
+                                                        if (matriz2[0][1]=='-'and matriz2[1][1]=='O'and matriz2[2][1]=='O'):
                                                             print("\njuega el bot:\n")
                                                             matriz2[0][1]='O'
                                                             for i in matriz2:
                                                                 print (i)
                                                         else:
-                                                            if (matriz2[0][2]=='X'and matriz2[1][2]=='X'and matriz2[2][2]=='-'): #Tercera vertical
+                                                            if (matriz2[0][2]=='O'and matriz2[1][2]=='O'and matriz2[2][2]=='-'): #Tercera vertical
                                                                 print("\njuega el bot:\n")
                                                                 matriz2[2][2]='O'
                                                                 for i in matriz2:
                                                                     print (i)
                                                             else:
-                                                                if (matriz2[0][2]=='X'and matriz2[1][2]=='-'and matriz2[2][2]=='X'):
+                                                                if (matriz2[0][2]=='O'and matriz2[1][2]=='-'and matriz2[2][2]=='O'):
                                                                     print("\njuega el bot:\n")
                                                                     matriz2[1][2]='O'
                                                                     for i in matriz2:
                                                                         print (i)
                                                                 else:
-                                                                    if (matriz2[0][2]=='-'and matriz2[1][2]=='X'and matriz2[2][2]=='X'):
+                                                                    if (matriz2[0][2]=='-'and matriz2[1][2]=='O'and matriz2[2][2]=='O'):
                                                                         print("\njuega el bot:\n")
                                                                         matriz2[0][2]='O'
                                                                         for i in matriz2:
                                                                             print (i)
                                                                     else:
-                                                                        if (matriz2[0][0]=='X'and matriz2[0][1]=='X'and matriz2[0][2]=='-'): #Primer horizontal
+                                                                        if (matriz2[0][0]=='O'and matriz2[0][1]=='O'and matriz2[0][2]=='-'): #Primer horizontal
                                                                             print("\njuega el bot:\n")
                                                                             matriz2[0][2]='O'
                                                                             for i in matriz2:
                                                                                 print (i)
                                                                         else:
-                                                                            if (matriz2[0][0]=='X'and matriz2[0][1]=='-'and matriz2[0][2]=='X'):
+                                                                            if (matriz2[0][0]=='O'and matriz2[0][1]=='-'and matriz2[0][2]=='O'):
                                                                                 print("\njuega el bot:\n")
                                                                                 matriz2[0][1]='O'
                                                                                 for i in matriz2:
                                                                                     print (i)
                                                                             else:
-                                                                                if (matriz2[0][0]=='-'and matriz2[0][1]=='X'and matriz2[0][2]=='X'):
+                                                                                if (matriz2[0][0]=='-'and matriz2[0][1]=='O'and matriz2[0][2]=='O'):
                                                                                     print("\njuega el bot:\n")
                                                                                     matriz2[0][0]='O'
                                                                                     for i in matriz2:
                                                                                         print (i)
                                                                                 else:
-                                                                                    if (matriz2[1][0]=='X'and matriz2[1][1]=='X'and matriz2[1][2]=='-'): #Segundo horizontal
+                                                                                    if (matriz2[1][0]=='O'and matriz2[1][1]=='O'and matriz2[1][2]=='-'): #Segundo horizontal
                                                                                         print("\njuega el bot:\n")
                                                                                         matriz2[1][2]='O'
                                                                                         for i in matriz2:
                                                                                             print (i)
                                                                                     else:
-                                                                                        if (matriz2[1][0]=='X'and matriz2[1][1]=='-'and matriz2[1][2]=='X'):
+                                                                                        if (matriz2[1][0]=='O'and matriz2[1][1]=='-'and matriz2[1][2]=='O'):
                                                                                             print("\njuega el bot:\n")
                                                                                             matriz2[1][1]='O'
                                                                                             for i in matriz2:
                                                                                                 print (i)
                                                                                         else:
-                                                                                            if (matriz2[1][0]=='-'and matriz2[1][1]=='X'and matriz2[1][2]=='X'):
+                                                                                            if (matriz2[1][0]=='-'and matriz2[1][1]=='O'and matriz2[1][2]=='O'):
                                                                                                 print("\njuega el bot:\n")
                                                                                                 matriz2[1][0]='O'
                                                                                                 for i in matriz2:
                                                                                                     print (i)
                                                                                             else:
-                                                                                                if (matriz2[2][0]=='X'and matriz2[2][1]=='X'and matriz2[2][2]=='-'): #Tercer horizontal
+                                                                                                if (matriz2[2][0]=='O'and matriz2[2][1]=='O'and matriz2[2][2]=='-'): #Tercer horizontal
                                                                                                     print("\njuega el bot:\n")
                                                                                                     matriz2[2][2]='O'
                                                                                                     for i in matriz2:
                                                                                                         print (i)
                                                                                                 else:
-                                                                                                    if (matriz2[2][0]=='X'and matriz2[2][1]=='-'and matriz2[2][2]=='X'):
+                                                                                                    if (matriz2[2][0]=='O'and matriz2[2][1]=='-'and matriz2[2][2]=='O'):
                                                                                                         print("\njuega el bot:\n")
                                                                                                         matriz2[2][1]='O'
                                                                                                         for i in matriz2:
                                                                                                             print (i)
                                                                                                     else:
-                                                                                                        if (matriz2[2][0]=='-'and matriz2[2][1]=='X'and matriz2[2][2]=='X'):
+                                                                                                        if (matriz2[2][0]=='-'and matriz2[2][1]=='O'and matriz2[2][2]=='O'):
                                                                                                             print("\njuega el bot:\n")
                                                                                                             matriz2[2][0]='O'
                                                                                                             for i in matriz2:
                                                                                                                 print (i)
-                                                                                                        else: #Ahora verifica si puede terminar una partida
-                                                                                                            if (matriz2[0][0]=='O'and matriz2[1][1]=='O'and matriz2[2][2]=='-'): #Diagonal de 135°
+                                                                                                        else: #Si no encuentra condiciones para ganar, busca la manera de evitar perder
+                                                                                                            if (matriz2[0][0]=='X'and matriz2[1][1]=='X'and matriz2[2][2]=='-'): #Diagonal de 135°
                                                                                                                 print("\njuega el bot:\n")
                                                                                                                 matriz2[2][2]='O'
                                                                                                                 for i in matriz2:
                                                                                                                     print (i)
                                                                                                             else:
-                                                                                                                if (matriz2[0][0]=='O'and matriz2[1][1]=='-'and matriz2[2][2]=='O'):
+                                                                                                                if (matriz2[0][0]=='X'and matriz2[1][1]=='-'and matriz2[2][2]=='X'):
                                                                                                                     print("\njuega el bot:\n")
                                                                                                                     matriz2[1][1]='O'
                                                                                                                     for i in matriz2:
                                                                                                                         print (i)
                                                                                                                 else:
-                                                                                                                    if (matriz2[0][0]=='-'and matriz2[1][1]=='O'and matriz2[2][2]=='O'):
+                                                                                                                    if (matriz2[0][0]=='-'and matriz2[1][1]=='X'and matriz2[2][2]=='X'):
                                                                                                                         print("\njuega el bot:\n")
                                                                                                                         matriz2[0][0]='O'
                                                                                                                         for i in matriz2:
                                                                                                                             print (i)
                                                                                                                     else:
-                                                                                                                        if (matriz2[0][2]=='O'and matriz2[1][1]=='O'and matriz2[2][0]=='-'): #Diagonal de 225°
+                                                                                                                        if (matriz2[0][2]=='X'and matriz2[1][1]=='X'and matriz2[2][0]=='-'): #Diagonal de 225°
                                                                                                                             print("\njuega el bot:\n")
                                                                                                                             matriz2[2][0]='O'
                                                                                                                             for i in matriz2:
                                                                                                                                 print (i)
                                                                                                                         else:
-                                                                                                                            if (matriz2[0][2]=='O'and matriz2[1][1]=='-'and matriz2[2][0]=='O'):
+                                                                                                                            if (matriz2[0][2]=='X'and matriz2[1][1]=='-'and matriz2[2][0]=='X'):
                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                 matriz2[1][1]='O'
                                                                                                                                 for i in matriz2:
                                                                                                                                     print (i)
                                                                                                                             else:
-                                                                                                                                if (matriz2[0][2]=='-'and matriz2[1][1]=='O'and matriz2[2][0]=='O'):
+                                                                                                                                if (matriz2[0][2]=='-'and matriz2[1][1]=='X'and matriz2[2][0]=='X'):
                                                                                                                                     print("\njuega el bot:\n")
                                                                                                                                     matriz2[0][2]='O'
                                                                                                                                     for i in matriz2:
                                                                                                                                         print (i)
                                                                                                                                 else:
-                                                                                                                                    if (matriz2[0][0]=='O'and matriz2[1][0]=='O'and matriz2[2][0]=='-'): #Primer vertical
+                                                                                                                                    if (matriz2[0][0]=='X'and matriz2[1][0]=='X'and matriz2[2][0]=='-'): #Primer vertical
                                                                                                                                         print("\njuega el bot:\n")
                                                                                                                                         matriz2[2][0]='O'
                                                                                                                                         for i in matriz2:
                                                                                                                                             print (i)
                                                                                                                                     else:
-                                                                                                                                        if (matriz2[0][0]=='O'and matriz2[1][0]=='-'and matriz2[2][0]=='O'):
+                                                                                                                                        if (matriz2[0][0]=='X'and matriz2[1][0]=='-'and matriz2[2][0]=='X'):
                                                                                                                                             print("\njuega el bot:\n")
                                                                                                                                             matriz2[1][0]='O'
                                                                                                                                             for i in matriz2:
                                                                                                                                                 print (i)
                                                                                                                                         else:
-                                                                                                                                            if (matriz2[0][0]=='-'and matriz2[1][0]=='O'and matriz2[2][0]=='O'):
+                                                                                                                                            if (matriz2[0][0]=='-'and matriz2[1][0]=='X'and matriz2[2][0]=='X'):
                                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                                 matriz2[0][0]='O'
                                                                                                                                                 for i in matriz2:
                                                                                                                                                     print (i)
                                                                                                                                             else:
-                                                                                                                                                if (matriz2[0][1]=='O'and matriz2[1][1]=='O'and matriz2[2][1]=='-'): #Segundo vertical
+                                                                                                                                                if (matriz2[0][1]=='X'and matriz2[1][1]=='X'and matriz2[2][1]=='-'): #Segundo vertical
                                                                                                                                                     print("\njuega el bot:\n")
                                                                                                                                                     matriz2[2][1]='O'
                                                                                                                                                     for i in matriz2:
                                                                                                                                                         print (i)
                                                                                                                                                 else:
-                                                                                                                                                    if (matriz2[0][1]=='O'and matriz2[1][1]=='-'and matriz2[2][1]=='O'):
+                                                                                                                                                    if (matriz2[0][1]=='X'and matriz2[1][1]=='-'and matriz2[2][1]=='X'):
                                                                                                                                                         print("\njuega el bot:\n")
                                                                                                                                                         matriz2[1][1]='O'
                                                                                                                                                         for i in matriz2:
                                                                                                                                                             print (i)
                                                                                                                                                     else:
-                                                                                                                                                        if (matriz2[0][1]=='-'and matriz2[1][1]=='O'and matriz2[2][1]=='O'):
+                                                                                                                                                        if (matriz2[0][1]=='-'and matriz2[1][1]=='X'and matriz2[2][1]=='X'):
                                                                                                                                                             print("\njuega el bot:\n")
                                                                                                                                                             matriz2[0][1]='O'
                                                                                                                                                             for i in matriz2:
                                                                                                                                                                 print (i)
                                                                                                                                                         else:
-                                                                                                                                                            if (matriz2[0][2]=='O'and matriz2[1][2]=='O'and matriz2[2][2]=='-'): #Tercera vertical
+                                                                                                                                                            if (matriz2[0][2]=='X'and matriz2[1][2]=='X'and matriz2[2][2]=='-'): #Tercera vertical
                                                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                                                 matriz2[2][2]='O'
                                                                                                                                                                 for i in matriz2:
                                                                                                                                                                     print (i)
                                                                                                                                                             else:
-                                                                                                                                                                if (matriz2[0][2]=='O'and matriz2[1][2]=='-'and matriz2[2][2]=='O'):
+                                                                                                                                                                if (matriz2[0][2]=='X'and matriz2[1][2]=='-'and matriz2[2][2]=='X'):
                                                                                                                                                                     print("\njuega el bot:\n")
                                                                                                                                                                     matriz2[1][2]='O'
                                                                                                                                                                     for i in matriz2:
                                                                                                                                                                         print (i)
                                                                                                                                                                 else:
-                                                                                                                                                                    if (matriz2[0][2]=='-'and matriz2[1][2]=='O'and matriz2[2][2]=='O'):
+                                                                                                                                                                    if (matriz2[0][2]=='-'and matriz2[1][2]=='X'and matriz2[2][2]=='X'):
                                                                                                                                                                         print("\njuega el bot:\n")
                                                                                                                                                                         matriz2[0][2]='O'
                                                                                                                                                                         for i in matriz2:
                                                                                                                                                                             print (i)
                                                                                                                                                                     else:
-                                                                                                                                                                        if (matriz2[0][0]=='O'and matriz2[0][1]=='O'and matriz2[0][2]=='-'): #Primer horizontal
+                                                                                                                                                                        if (matriz2[0][0]=='X'and matriz2[0][1]=='X'and matriz2[0][2]=='-'): #Primer horizontal
                                                                                                                                                                             print("\njuega el bot:\n")
                                                                                                                                                                             matriz2[0][2]='O'
                                                                                                                                                                             for i in matriz2:
                                                                                                                                                                                 print (i)
                                                                                                                                                                         else:
-                                                                                                                                                                            if (matriz2[0][0]=='O'and matriz2[0][1]=='-'and matriz2[0][2]=='O'):
+                                                                                                                                                                            if (matriz2[0][0]=='X'and matriz2[0][1]=='-'and matriz2[0][2]=='X'):
                                                                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                                                                 matriz2[0][1]='O'
                                                                                                                                                                                 for i in matriz2:
                                                                                                                                                                                     print (i)
                                                                                                                                                                             else:
-                                                                                                                                                                                if (matriz2[0][0]=='-'and matriz2[0][1]=='O'and matriz2[0][2]=='O'):
+                                                                                                                                                                                if (matriz2[0][0]=='-'and matriz2[0][1]=='X'and matriz2[0][2]=='X'):
                                                                                                                                                                                     print("\njuega el bot:\n")
                                                                                                                                                                                     matriz2[0][0]='O'
                                                                                                                                                                                     for i in matriz2:
                                                                                                                                                                                         print (i)
                                                                                                                                                                                 else:
-                                                                                                                                                                                    if (matriz2[1][0]=='O'and matriz2[1][1]=='O'and matriz2[1][2]=='-'): #Segundo horizontal
+                                                                                                                                                                                    if (matriz2[1][0]=='X'and matriz2[1][1]=='X'and matriz2[1][2]=='-'): #Segundo horizontal
                                                                                                                                                                                         print("\njuega el bot:\n")
                                                                                                                                                                                         matriz2[1][2]='O'
                                                                                                                                                                                         for i in matriz2:
                                                                                                                                                                                             print (i)
                                                                                                                                                                                     else:
-                                                                                                                                                                                        if (matriz2[1][0]=='O'and matriz2[1][1]=='-'and matriz2[1][2]=='O'):
+                                                                                                                                                                                        if (matriz2[1][0]=='X'and matriz2[1][1]=='-'and matriz2[1][2]=='X'):
                                                                                                                                                                                             print("\njuega el bot:\n")
                                                                                                                                                                                             matriz2[1][1]='O'
                                                                                                                                                                                             for i in matriz2:
                                                                                                                                                                                                 print (i)
                                                                                                                                                                                         else:
-                                                                                                                                                                                            if (matriz2[1][0]=='-'and matriz2[1][1]=='O'and matriz2[1][2]=='O'):
+                                                                                                                                                                                            if (matriz2[1][0]=='-'and matriz2[1][1]=='X'and matriz2[1][2]=='X'):
                                                                                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                                                                                 matriz2[1][0]='O'
                                                                                                                                                                                                 for i in matriz2:
                                                                                                                                                                                                     print (i)
                                                                                                                                                                                             else:
-                                                                                                                                                                                                if (matriz2[2][0]=='O'and matriz2[2][1]=='O'and matriz2[2][2]=='-'): #Tercer horizontal
+                                                                                                                                                                                                if (matriz2[2][0]=='X'and matriz2[2][1]=='X'and matriz2[2][2]=='-'): #Tercer horizontal
                                                                                                                                                                                                     print("\njuega el bot:\n")
                                                                                                                                                                                                     matriz2[2][2]='O'
                                                                                                                                                                                                     for i in matriz2:
                                                                                                                                                                                                         print (i)
                                                                                                                                                                                                 else:
-                                                                                                                                                                                                    if (matriz2[2][0]=='O'and matriz2[2][1]=='-'and matriz2[2][2]=='O'):
+                                                                                                                                                                                                    if (matriz2[2][0]=='X'and matriz2[2][1]=='-'and matriz2[2][2]=='X'):
                                                                                                                                                                                                         print("\njuega el bot:\n")
                                                                                                                                                                                                         matriz2[2][1]='O'
                                                                                                                                                                                                         for i in matriz2:
                                                                                                                                                                                                             print (i)
                                                                                                                                                                                                     else:
-                                                                                                                                                                                                        if (matriz2[2][0]=='-'and matriz2[2][1]=='O'and matriz2[2][2]=='O'):
+                                                                                                                                                                                                        if (matriz2[2][0]=='-'and matriz2[2][1]=='X'and matriz2[2][2]=='X'):
                                                                                                                                                                                                             print("\njuega el bot:\n")
                                                                                                                                                                                                             matriz2[2][0]='O'
                                                                                                                                                                                                             for i in matriz2:
                                                                                                                                                                                                                 print (i)
-                                                                                                                                                                                                        else:
+                                                                                                                                                                                                        else: #Si no encuentra como ganar o evitar perder, señalara una casilla de alto valor
                                                                                                                                                                                                             if(matriz2[1][1]=='-' and matriz2[1][1]!='X' and matriz2[1][1]!='O'): #Primera prioridad: El centro
                                                                                                                                                                                                                 print("\njuega el bot:\n")
                                                                                                                                                                                                                 matriz2[1][1]='O'
@@ -453,29 +454,35 @@ def bot():
                                                                                                                                                                                                                             for i in matriz2:
                                                                                                                                                                                                                                 print(i)
                                                                                                                                                                                                                         else:
-                                                                                                                                                                                                                            if(matriz2[0][1]=='-' and matriz2[0][1]!='X' and matriz2[0][1]!='O'): #Tercera proridad: Lados
+                                                                                                                                                                                                                            if(matriz2[2][2]=='-' and matriz2[2][2]!='X' and matriz2[2][2]!='O'):
                                                                                                                                                                                                                                 print("\njuega el bot:\n")
-                                                                                                                                                                                                                                matriz2[0][1]='O'
+                                                                                                                                                                                                                                matriz2[2][2]='O'
                                                                                                                                                                                                                                 for i in matriz2:
                                                                                                                                                                                                                                     print(i)
                                                                                                                                                                                                                             else:
-                                                                                                                                                                                                                                if(matriz2[1][0]=='-' and matriz2[1][0]!='X' and matriz2[1][0]!='O'):
+                                                                                                                                                                                                                                if(matriz2[0][1]=='-' and matriz2[0][1]!='X' and matriz2[0][1]!='O'): #Tercera proridad: Lados
                                                                                                                                                                                                                                     print("\njuega el bot:\n")
-                                                                                                                                                                                                                                    matriz2[1][0]='O'
+                                                                                                                                                                                                                                    matriz2[0][1]='O'
                                                                                                                                                                                                                                     for i in matriz2:
                                                                                                                                                                                                                                         print(i)
                                                                                                                                                                                                                                 else:
-                                                                                                                                                                                                                                    if(matriz2[1][2]=='-' and matriz2[1][2]!='X' and matriz2[1][2]!='O'):
+                                                                                                                                                                                                                                    if(matriz2[1][0]=='-' and matriz2[1][0]!='X' and matriz2[1][0]!='O'):
                                                                                                                                                                                                                                         print("\njuega el bot:\n")
-                                                                                                                                                                                                                                        matriz2[1][2]='O'
+                                                                                                                                                                                                                                        matriz2[1][0]='O'
                                                                                                                                                                                                                                         for i in matriz2:
                                                                                                                                                                                                                                             print(i)
                                                                                                                                                                                                                                     else:
-                                                                                                                                                                                                                                        if(matriz2[2][1]=='-' and matriz2[2][1]!='X' and matriz2[2][1]!='O'):
+                                                                                                                                                                                                                                        if(matriz2[1][2]=='-' and matriz2[1][2]!='X' and matriz2[1][2]!='O'):
                                                                                                                                                                                                                                             print("\njuega el bot:\n")
-                                                                                                                                                                                                                                            matriz2[2][1]='O'
+                                                                                                                                                                                                                                            matriz2[1][2]='O'
                                                                                                                                                                                                                                             for i in matriz2:
                                                                                                                                                                                                                                                 print(i)
+                                                                                                                                                                                                                                        else:
+                                                                                                                                                                                                                                            if(matriz2[2][1]=='-' and matriz2[2][1]!='X' and matriz2[2][1]!='O'):
+                                                                                                                                                                                                                                                print("\njuega el bot:\n")
+                                                                                                                                                                                                                                                matriz2[2][1]='O'
+                                                                                                                                                                                                                                                for i in matriz2:
+                                                                                                                                                                                                                                                    print(i)
 
 
 
